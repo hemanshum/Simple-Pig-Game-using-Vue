@@ -77,11 +77,14 @@ new Vue({
         newGame: function() {
             this.playerTwoScore = 0;
             this.playerOneScore = 0;
+            this.playerOneCurrent = 0;
+            this.playerTwoCurrent = 0;
             this.twoIsWinner = false;
             this.userTwoActive = false;
             this.oneIsWinner = false;
             this.userOneActive = true;
             this.notWon = true;
+            this.start = false;
         }
     }
 });
