@@ -13,7 +13,7 @@ new Vue({
     el: '#app',
     data: {
         player: ['Player 1', 'Player 2'],
-        dice: 'dice-1.png',
+        dice: './img/dice-1.png',
         playerOneCurrent: 0,
         playerTwoCurrent: 0,
         playerOneScore: 0,
@@ -23,12 +23,14 @@ new Vue({
         winningNumber: 50,
         oneIsWinner: '',
         twoIsWinner: '',
-        notWon: true
+        notWon: true,
+        start: false
     },
     methods: {
         rollDice: function() {
+            this.start = true;
             let diceNo = Math.floor(Math.random() * 6 + 1);
-            this.dice = `dice-${diceNo}.png`;
+            this.dice = `./img/dice-${diceNo}.png`;
             if (diceNo == 1) {
                 this.playerOneCurrent = 0;
                 this.playerTwoCurrent = 0;
@@ -50,6 +52,7 @@ new Vue({
                     this.userOneActive = false;
                     this.playerOneCurrent = 0;
                     this.notWon = false;
+                    this.start = false;
                 } else {
                     this.playerOneCurrent = 0;
                     this.userOneActive = false;
@@ -62,6 +65,7 @@ new Vue({
                     this.userTwoActive = false;
                     this.playerTwoCurrent = 0;
                     this.notWon = false;
+                    this.start = false;
                 } else {
                     this.playerTwoCurrent = 0;
                     this.userOneActive = true;
